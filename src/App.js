@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { Container } from "react-bootstrap"
+import { AuthProvider } from "./contexts/AuthContext"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Signup from "./Components/Signup"
+import Dashboard from "./Components/Dashboard"
+import Login from "./Components/Login"
+import PrivateRoute from "./Components/PrivateRoute"
+import ForgotPassword from "./Components/ForgotPassword"
+import UpdateProfile from "./Components/UpdateProfile"
+import '../src/App.css'
+import { faGithub, faInstagram, faLinkedin, faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container
+      className="d-flex align-items-center justify-content-center App"
+      style={{ minHeight: "100vh" }}
+    >
+      <div>
+        <Router>
+          <AuthProvider>
+            <Switch>
+              <PrivateRoute exact path="/" component={Dashboard} />
+              <PrivateRoute path="/update-profile" component={UpdateProfile} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/login" component={Login} />
+              <Route path="/forgot-password" component={ForgotPassword} />
+            </Switch>
+          </AuthProvider>
+        </Router>
+      </div>
+      <footer className="footer">
+        <center>
+          <a href="https://github.com/Travmedia-il"><FontAwesomeIcon className="footer-fa-icon" icon={faGithub} color={"white"} /></a>
+          <a href="https://www.instagram.com/rudovruben"><FontAwesomeIcon className="footer-fa-icon" icon={faInstagram} color={"white"} /></a>
+          <a href="https://www.linkedin.com/in/ruben-rudov-106a22204/"><FontAwesomeIcon className="footer-fa-icon" icon={faLinkedin} color={"white"} /></a>
+          <a href="mailto:rudovruben4all@gmail.com"><FontAwesomeIcon className="footer-fa-icon" icon={faGoogle} color={"white"}/></a>
+          <p>© Travmedia 2021</p>
+        </center>
+      </footer>
+    </Container>
+  )
 }
 
-export default App;
+export default App
