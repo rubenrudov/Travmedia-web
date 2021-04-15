@@ -9,7 +9,7 @@ import PrivateRoute from "./Components/PrivateRoute"
 import ForgotPassword from "./Components/ForgotPassword"
 import UpdateProfile from "./Components/UpdateProfile"
 import '../src/App.css'
-import { faGithub, faInstagram, faLinkedin, faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
+              <PrivateRoute exact path="/planner" />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
@@ -36,7 +37,7 @@ function App() {
           <a href="https://github.com/Travmedia-il"><FontAwesomeIcon className="footer-fa-icon" icon={faGithub} color={"white"} /></a>
           <a href="https://www.instagram.com/rudovruben"><FontAwesomeIcon className="footer-fa-icon" icon={faInstagram} color={"white"} /></a>
           <a href="https://www.linkedin.com/in/ruben-rudov-106a22204/"><FontAwesomeIcon className="footer-fa-icon" icon={faLinkedin} color={"white"} /></a>
-          <a href="mailto:rudovruben4all@gmail.com"><FontAwesomeIcon className="footer-fa-icon" icon={faGoogle} color={"white"}/></a>
+          <a href="https://twitter.com/RubenRudov"><FontAwesomeIcon className="footer-fa-icon" icon={faTwitter} color={"white"}/></a>
           <p>© Travmedia 2021</p>
         </center>
       </footer>

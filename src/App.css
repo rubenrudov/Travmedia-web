@@ -41,12 +41,13 @@
 }
 
 .label {
+  font-size: 22px;
   margin-left: 20px;
   color: whitesmoke;
 }
 
 .input {
-  border: 2px solid transparent;
+  border: 2px solid rgba(42, 42, 42, 0.4);
   border-radius: 25px;
   padding: 6px 14px 6px 14px;
   transition: all 0.55s;
@@ -92,6 +93,8 @@
   padding-top: 3px;
   padding-bottom: 3px;
   transition: all 1.05s;
+  border: 2px solid transparent;
+  border-radius: 20px;
 } 
 
 .btn1 p {
@@ -111,6 +114,7 @@
   cursor: pointer;
   background-color: var(--eden);
   border-radius: 25px;
+  border: 2px solid whitesmoke;
 }
 
 .btn1:hover p {
