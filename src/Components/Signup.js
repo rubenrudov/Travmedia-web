@@ -65,7 +65,7 @@ export default function Signup() {
         </Card.Body>
       </Card>
       <br/>
-      <div className="btn1"><p><Link to="/login">Already have an account? Log In</Link></p></div>
+      <div className="btn1"><p><Link to="/login">Login with your account</Link></p></div>
     </div>
   )
 }

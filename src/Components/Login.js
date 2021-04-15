@@ -58,7 +58,7 @@ export default function Login() {
         </Card.Body>
       </Card>
       <br/>
-      <div className="btn1"><p><Link to="/signup">Need an account? Sign Up</Link></p></div>
+      <div className="btn1"><p><Link to="/signup">Create an account</Link></p></div>
     </div>
   )
 }
