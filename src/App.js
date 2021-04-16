@@ -8,6 +8,7 @@ import Login from "./Components/Login"
 import PrivateRoute from "./Components/PrivateRoute"
 import ForgotPassword from "./Components/ForgotPassword"
 import UpdateProfile from "./Components/UpdateProfile"
+import About from "./Components/About"
 import '../src/App.css'
 import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -28,6 +29,7 @@ function App() {
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
+              <Route path="/about" component={About} />
             </Switch>
           </AuthProvider>
         </Router>

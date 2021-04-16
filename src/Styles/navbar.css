@@ -1,0 +1,42 @@
+nav {
+    margin: 0;
+    background-color: var(--eden);
+    display: flex;
+    padding-left: 25px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+nav .title a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+nav ul {
+    display: grid;
+    justify-content: end;
+    list-style: none;
+    grid-template-columns: repeat(5, auto);
+}
+
+nav ul li {
+    padding: 15px;
+    height: max-content;
+    transition: all 0.85s;
+    cursor: pointer;
+}
+
+nav ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+    transition: all 0.85s;
+}
+
+nav ul li:hover {
+    background-color: whitesmoke;
+}
+
+nav ul li:hover a {
+    color: var(--eden);
+}
