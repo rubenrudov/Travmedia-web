@@ -21,15 +21,15 @@ export default function Navbar() {
             className: '/'
         },
         {
-            title: 'Flights',
-            url: '/',
-            className: '/'
-        },
-        {
             title: 'About',
             url: '/about',
             className: '/'
         },
+        {
+            title: 'Profile',
+            url: '/update-profile',
+            className: '/'
+        }
     ];
 
     return (
