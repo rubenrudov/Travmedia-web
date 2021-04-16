@@ -8,27 +8,22 @@ export default function Navbar() {
         {
             title: 'Home',
             url: '/',
-            className: '/'
         },
         {
             title: 'Planner',
-            url: '/',
-            className: '/'
+            url: '/planner',
         },
         {
             title: 'Flights',
-            url: '/',
-            className: '/'
+            url: '/flights',
         },
         {
             title: 'About',
             url: '/about',
-            className: '/'
         },
         {
             title: 'Profile',
             url: '/update-profile',
-            className: '/'
         }
     ];
 
@@ -43,7 +38,7 @@ export default function Navbar() {
                     MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <a className={item.className} href={item.url}>{item.title}</a>
+                                <a href={item.url}>{item.title}</a>
                             </li>
                         );
                     })
