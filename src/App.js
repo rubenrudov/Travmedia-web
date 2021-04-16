@@ -29,10 +29,10 @@ function App() {
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <PrivateRoute exact path="/planner" component={Planner}/>
               <PrivateRoute exact path="/flights" component={Flights}/>
+              <PrivateRoute path="/about" component={About} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
-              <Route path="/about" component={About} />
             </Switch>
           </AuthProvider>
         </Router>

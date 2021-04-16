@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styles/navbar.css'
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar({ logout }) {
 
     const MenuItems = [
         {
@@ -43,6 +43,7 @@ export default function Navbar() {
                         );
                     })
                 }
+                <li>{logout}</li>
             </ul>
         </nav>
     );

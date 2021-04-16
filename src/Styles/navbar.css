@@ -17,7 +17,7 @@ nav ul {
     display: grid;
     justify-content: end;
     list-style: none;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
 }
 
 nav ul li {
@@ -33,10 +33,19 @@ nav ul li a {
     transition: all 0.85s;
 }
 
+.logout-button {
+    color: whitesmoke;
+    text-decoration: none;
+    background: none;
+    border: none;
+    transition: all 0.85s;
+    font-size: 1.2rem;
+}
+
 nav ul li:hover {
     background-color: whitesmoke;
 }
 
-nav ul li:hover a {
+nav ul li:hover a, nav ul li:hover .logout-button {
     color: var(--eden);
 }
