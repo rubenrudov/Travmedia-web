@@ -37,15 +37,6 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-      <footer className="footer">
-        <center>
-          <a href="https://github.com/Travmedia-il"><FontAwesomeIcon className="footer-fa-icon" icon={faGithub} color={"white"} /></a>
-          <a href="https://www.instagram.com/rudovruben"><FontAwesomeIcon className="footer-fa-icon" icon={faInstagram} color={"white"} /></a>
-          <a href="https://www.linkedin.com/in/ruben-rudov-106a22204/"><FontAwesomeIcon className="footer-fa-icon" icon={faLinkedin} color={"white"} /></a>
-          <a href="https://twitter.com/RubenRudov"><FontAwesomeIcon className="footer-fa-icon" icon={faTwitter} color={"white"}/></a>
-          <p>© Travmedia 2021</p>
-        </center>
-      </footer>
     </Container>
   )
 }

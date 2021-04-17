@@ -40,6 +40,7 @@ nav ul li a {
     border: none;
     transition: all 0.85s;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 nav ul li:hover {

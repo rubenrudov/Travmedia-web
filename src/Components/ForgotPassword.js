@@ -3,6 +3,8 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
 import website_logo from '../Assets/website_logo.jpeg'
+import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function ForgotPassword() {
   const emailRef = useRef()
@@ -53,6 +55,15 @@ export default function ForgotPassword() {
       </Card>
       <br/>
       <div className="btn1"><p><Link to="/signup">Create an account</Link></p></div>
+      <footer className="footer">
+        <center>
+          <a href="https://github.com/Travmedia-il"><FontAwesomeIcon className="footer-fa-icon" icon={faGithub} color={"white"} /></a>
+          <a href="https://www.instagram.com/rudovruben"><FontAwesomeIcon className="footer-fa-icon" icon={faInstagram} color={"white"} /></a>
+          <a href="https://www.linkedin.com/in/ruben-rudov-106a22204/"><FontAwesomeIcon className="footer-fa-icon" icon={faLinkedin} color={"white"} /></a>
+          <a href="https://twitter.com/RubenRudov"><FontAwesomeIcon className="footer-fa-icon" icon={faTwitter} color={"white"}/></a>
+          <p>© Travmedia 2021</p>
+        </center>
+      </footer>
     </div>
   )
 }
