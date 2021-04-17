@@ -4,6 +4,9 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import Navbar from './Navbar';
 import '../Styles/private.css';
+import flight_illustration from '../Assets/flight_illustration.jpg'
+import planning_illustration from '../Assets/planning_illustration.jpg'
+import rest_illustration from '../Assets/rest_illustration.jpg'
 
 export default function Dashboard() {
   const [error, setError] = useState("")
@@ -39,19 +42,19 @@ export default function Dashboard() {
     {
       name: "Plan your trip",
       desc: "In the planner section you can write down your routes and whole the locations that you're supposed to visit during your trip, save it for yourself and you also will be able to share your plan with friends.",
-      img: "url",
+      img: planning_illustration,
       route: "/planner"
     },
     {
       name: "Search flights",
       desc: "In this page we'll help you find the best flight for your causes, we ask you for dates, destination & budjet and then we'll show you the best flights we could find for you and links for the tickets",
-      img: "url",
+      img: flight_illustration,
       route: "/flights"
     },
     {
-      name: "Search attractions & restraunts",
-      desc: "In this page you'll be able to view attractions & restraunts by the parameters you'd like to view, we ask you for destination & dates of visit and then we'll let you know what are the best places to visit in the destinition in the dates you've given us.",
-      img: "url",
+      name: "Search attractions & restaurants",
+      desc: "In this page you'll be able to view attractions & restaurants by the parameters you'd like to view, we ask you for destination & dates of visit and then we'll let you know what are the best places to visit in the destinition in the dates you've given us.",
+      img: rest_illustration,
       route: "/"
     },
   ]
@@ -70,27 +73,39 @@ export default function Dashboard() {
             <h2>Our services</h2>
             <div className="services">
               {
-                    Services.map((item, index) => {
-                        return (
-                          <>
-                            <br/>
-                            <div key={index} className="service">
-                                <h3>{item.name}</h3>
-                                <br/>
-                                <p>{item.desc}</p>
-                                <br/>
-                                <a className={item.route === "/" ? "text" : "link"} href={item.route === "/" ? null : item.route}>{item.route === "/" ? "Scroll down for more info" : `To ${item.name.toLowerCase()} page`}</a>
-                            </div>
-                          </>
-                        );
-                    })
+                Services.map((item, index) => {
+                  return (
+                    <>
+                      <br/>
+                      <div key={index} className="service">
+                          <h3>{item.name}</h3>
+                          <br/>
+                          <p>{item.desc}</p>
+                          <br/>
+                          <img class="service-illustration" alt="" src={item.img}/>
+                          <br/>
+                          <br/>
+                          <a
+                             className={item.route === "/" ? "text" : "link"} 
+                             href={item.route === "/" ? null : item.route}>
+                               {item.route === "/" ? "Scroll down for more info" : `To ${item.name.toLowerCase()} page`}
+                          </a>
+                      </div>
+                    </>
+                  );
+                })
               }
             </div>
         </div>
       </div>
       <br/>
+
+      <div className="attractions">
+        <p>Search attractions & restaurants section</p>
+      </div>
+      
       <div className="gallery">
-          Gallery section
+          <p>Gallery section</p>
       </div>
     </div>
   )

@@ -24,10 +24,12 @@ h2 {
 
 .content .about h2,  .content .about h3{
     color: var(--eden) !important;
+    font-size: xx-large;
     text-decoration: underline;
 }
 
 .content .about .services .service {
+    background-color: white;
     border: 2px solid var(--eden);
     border-radius: 5px;
     overflow: hidden;
@@ -36,6 +38,7 @@ h2 {
 
 .content .about .services .service p {
     text-align: justify;
+    font-size: large;
 }
 
 .content .about .services .service a {
@@ -54,6 +57,11 @@ h2 {
 .content .about .services .service .text {
     background: none !important;
     color: var(--eden);
+}
+
+.content .about .services .service .service-illustration {
+    width: 450px;
+    height: auto;
 }
 
 .content .about .services .service a:hover {
