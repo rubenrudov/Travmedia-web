@@ -1,0 +1,61 @@
+h2 {
+    color: whitesmoke;
+    padding: 15px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .about {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: aliceblue;
+    text-align: center;
+    align-items: center;
+    width: 75%;
+    border-radius: 10px;
+}
+
+.content .about h2,  .content .about h3{
+    color: var(--eden) !important;
+    text-decoration: underline;
+}
+
+.content .about .services .service {
+    border: 2px solid var(--eden);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 25px;
+}
+
+.content .about .services .service p {
+    text-align: justify;
+}
+
+.content .about .services .service a {
+    text-decoration: none;
+    font-size: medium;
+    color: whitesmoke;
+    font-weight: 800;
+    padding: 10px;
+    background-color: var(--pelorous);
+    border: 1px solid var(--eden);
+    border-radius: 5px;
+    transition: all 0.85s;
+    cursor: pointer;
+}
+
+.content .about .services .service .text {
+    background: none !important;
+    color: var(--eden);
+}
+
+.content .about .services .service a:hover {
+    background-color: var(--glacier);
+}
