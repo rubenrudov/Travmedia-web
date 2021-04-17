@@ -9,10 +9,13 @@ import planning_illustration from '../Assets/planning_illustration.jpg'
 import rest_illustration from '../Assets/rest_illustration.jpg'
 
 export default function Dashboard() {
+
+  // Hooks
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   const history = useHistory()
 
+  // Logout function -> could be used in any private route but actually used only in the homepage
   async function handleLogout() {
     setError("")
 
@@ -24,6 +27,8 @@ export default function Dashboard() {
     }
   }
 
+  // Function for getting the "name" part from an email
+  // Example: ruby.rudov from ruby.rudov@gmail.com
   function getUname(email) {
     var username = "";
     for(var i = 1; i < email.length; i++) {
@@ -38,6 +43,7 @@ export default function Dashboard() {
     return username;
   }
 
+  // Searvices JSONArray, for reducing HTML code in the JS file
   const Services = [
     {
       name: "Plan your trip",
@@ -59,6 +65,7 @@ export default function Dashboard() {
     },
   ]
 
+  // Component return
   return (
     <div>
       <Navbar logout={

@@ -7,6 +7,7 @@ import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Login() {
+  // Hooks
   const emailRef = useRef()
   const passwordRef = useRef()
   const { login } = useAuth()
@@ -14,9 +15,9 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
+  // Login function
   async function handleSubmit(e) {
     e.preventDefault()
-
     try {
       setError("")
       setLoading(true)
@@ -28,6 +29,7 @@ export default function Login() {
     setLoading(false)
   }
 
+  // Component return 
   return (
     <div className="login">
       <div className="banner">

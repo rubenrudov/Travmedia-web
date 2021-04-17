@@ -7,6 +7,7 @@ import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Signup() {
+  // Hooks
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
@@ -15,13 +16,12 @@ export default function Signup() {
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
+  // Signup function
   async function handleSubmit(e) {
     e.preventDefault()
-
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match")
     }
-
     try {
       setError("")
       setLoading(true)
@@ -34,6 +34,7 @@ export default function Signup() {
     setLoading(false)
   }
 
+  // Component return 
   return (
     <div className="login">
       <div className="banner">
