@@ -22,7 +22,7 @@ h2 {
     border-radius: 10px;
 }
 
-.content .about h2,  .content .about h3{
+.content .about h2,  .content .about h3 {
     color: var(--eden) !important;
     font-size: xx-large;
     text-decoration: underline;
