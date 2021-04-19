@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
@@ -14,7 +14,14 @@ export default function Dashboard() {
   // Hooks
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
-  const history = useHistory()
+  const history = useHistory();
+  const [destination, setDestination] = useState("");
+  const [hotels, setHotels] = useState([]);
+
+
+  // useEffect(() => {
+  //   var destination = "Tel Aviv";
+  // }, []);
 
   // Logout function -> could be used in any private route but actually used only in the homepage
   async function handleLogout() {
@@ -65,6 +72,22 @@ export default function Dashboard() {
       route: "/"
     },
   ]
+
+  // const onDestinationChange = async (e) => {
+  //   const destination = e.target.value;
+  //   const url = destination === "" ? "https://hotels4.p.rapidapi.com/locations/search?query=tel%20aviv&locale=en_US" : `https://hotels4.p.rapidapi.com/locations/search?query=${destination}&locale=en_US`
+  //   await fetch(url, {
+  //     "method": "GET",
+  //     "headers": {
+  //       "x-rapidapi-key": "1aef007bdcmshc0731e404515fc0p1133fbjsndcab84fe524b",
+  //       "x-rapidapi-host": "hotels4.p.rapidapi.com"
+  //     }
+  //   }).then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //     setHotels(data);
+  //   });
+  // };
 
   // Component return
   return (

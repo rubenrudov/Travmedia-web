@@ -69,11 +69,12 @@ h2 {
 }
 
 .flights {
-    padding: 35px
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
 }
 
 .results {
-    width: 80%;
     padding: 40px;
     background-color: white;
 }
@@ -121,3 +122,10 @@ select option {
     font-size: large;
     font-weight: 800;
 }
+
+
+/*
+    TODO:
+    1) Responsivity for params box.
+    2) Responsivity for the home page elements
+*/

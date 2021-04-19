@@ -5,15 +5,16 @@ import { Button } from 'react-bootstrap';
 
 /* TODO:
     1) Add 4 boxes (1 date picker, 3 dropdowns): From, To, Date picker and Price range radio button.
-    2) Read the countries from https://restcountries.eu/rest/v2/all.
-    3) Add countries to dropdown.
-    4) implement searching via skyscanner api.
+    2) Implement searching via skyscanner api.
+    3) Design the countries dropdown with domw flasgs (see the corona webapp)
 */
 
 
 export default function Flights() {
     const [flights, setFlights] = useState(["Null"]);
     const [countries, setCountries] = useState([]);
+    const [from, setFrom] = useState("");
+    const [to, setTo] = useState("");
 
     useEffect(() => {
         fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/USD/en-GB/?query=Stockholm", {
@@ -33,13 +34,19 @@ export default function Flights() {
     }, []);
 
     useEffect(() => {
+        var url;
+        if (from === "" || to === "") {
+            url = "";
+        } else {
+            url = "";
+        }
+    }, []);
+
+    useEffect(() => {
         fetch("https://restcountries.eu/rest/v2/all")
         .then((response) => response.json() )
         .then((data) => {
             console.log(data)
-            for(var i=0; i < data.length; i++) {
-                console.log(data[i]);
-            }
             setCountries(data);
         })    
     }, []);
@@ -51,7 +58,7 @@ export default function Flights() {
                 <h1>Flights page</h1>
                 <h3>Results: </h3>
                 <div className="search-box">
-                    <select name="Departure" id="dropdown">
+                    <select name="Departure">
                         <option value="Departure">Departure</option>
                         {
                             countries.map((item, index) => {
@@ -63,7 +70,8 @@ export default function Flights() {
                             })
                         }
                     </select>
-                    <select name="Destination" id="dropdown">
+                    
+                    <select name="Destination">
                         <option value="Destination">Destination</option>
                         {
                             countries.map((item, index) => {
@@ -75,14 +83,15 @@ export default function Flights() {
                             })
                         }
                     </select>
-                    <select name="Price-range" id="dropdown">
+                    
+                    <select name="Price-range">
                         <option value="Price range">Price range</option>
                     </select>
+
                     <Button className="submit-button">
                         submit
                     </Button>
                 </div>
-
                 <div className="results">
                     <p>{flights.PlaceName}</p>
                 </div>
