@@ -67,3 +67,13 @@ h2 {
 .content .about .services .service a:hover {
     background-color: var(--glacier);
 }
+
+.flights {
+    padding: 35px
+}
+
+.results {
+    width: 80%;
+    padding: 40px;
+    background-color: white;
+}

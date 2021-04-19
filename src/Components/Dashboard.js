@@ -8,8 +8,9 @@ import flight_illustration from '../Assets/flight_illustration.jpg'
 import planning_illustration from '../Assets/planning_illustration.jpg'
 import rest_illustration from '../Assets/rest_illustration.jpg'
 
-export default function Dashboard() {
+// FIXME: responsive CSS
 
+export default function Dashboard() {
   // Hooks
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
