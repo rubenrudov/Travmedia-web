@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/navbar.css'
-import { Link } from "react-router-dom"
+import website_logo from '../Assets/website_logo.jpeg'
 
 export default function Navbar({ logout }) {
 
@@ -29,7 +29,7 @@ export default function Navbar({ logout }) {
 
     return (
         <nav>
-            <h1 className="title"><a href="/">Travmedia</a></h1>
+            <a href="/"><img className="logo" src={website_logo} alt="logo"/></a>
             <div className="icon">
 
             </div>

@@ -2,7 +2,7 @@ nav {
     margin: 0;
     background-color: var(--eden);
     display: flex;
-    padding-left: 25px;
+    padding-left: 10px;
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
@@ -31,6 +31,14 @@ nav ul li a {
     color: whitesmoke;
     text-decoration: none;
     transition: all 0.85s;
+}
+
+.logo {
+    width: 45px;
+    margin-top: 3px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 100%;
 }
 
 .logout-button {
