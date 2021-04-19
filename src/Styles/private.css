@@ -77,3 +77,43 @@ h2 {
     padding: 40px;
     background-color: white;
 }
+
+.submit-button {
+    padding: 7.5px;
+    color: whitesmoke;
+    background-color: var(--glacier);
+    border: 2px solid var(--eden);
+    font-size: large;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.85s;
+}
+
+.submit-button:hover {
+    background-color: var(--pelorous);
+}
+
+.submit-button:focus {
+    outline: none;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    background-color: var(--pelorous);
+}
+
+select {
+    padding: 7.5px;
+    font-size: large;
+    font-weight: 800;
+}
+
+select option {
+    /* Change to custom's option className */
+    padding: 7.5px;
+    font-size: large;
+    font-weight: 800;
+}

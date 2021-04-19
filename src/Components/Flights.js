@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar'
 import '../Styles/private.css';
+import { Button } from 'react-bootstrap';
 
 /* TODO:
     1) Add 4 boxes (1 date picker, 3 dropdowns): From, To, Date picker and Price range radio button.
@@ -56,7 +57,7 @@ export default function Flights() {
                             countries.map((item, index) => {
                                 return (
                                     <option value={index}>
-                                        {item.name}
+                                        {item.capital}, {item.name}
                                     </option>
                                 )
                             })
@@ -77,6 +78,9 @@ export default function Flights() {
                     <select name="Price-range" id="dropdown">
                         <option value="Price range">Price range</option>
                     </select>
+                    <Button className="submit-button">
+                        submit
+                    </Button>
                 </div>
 
                 <div className="results">
