@@ -69,7 +69,7 @@ export default function Flights() {
                             countries.map((item, index) => {
                                 return (
                                     <option value={index}>
-                                        {item.name}
+                                        {item.capital}, {item.name}
                                     </option>
                                 )
                             })
