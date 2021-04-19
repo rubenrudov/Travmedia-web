@@ -130,10 +130,6 @@ export default function Dashboard() {
         </div>
       </div>
       <br/>
-
-      <div className="attractions">
-        <p>Search attractions & restaurants section</p>
-      </div>
       
       <div className="gallery">
           <p>Gallery section</p>

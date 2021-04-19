@@ -9,10 +9,9 @@ import PrivateRoute from "./Components/PrivateRoute"
 import ForgotPassword from "./Components/ForgotPassword"
 import UpdateProfile from "./Components/UpdateProfile"
 import About from "./Components/About"
+import Forums from './Components/Forums'
 import Planner from "./Components/Planner"
 import '../src/App.css'
-import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Flights from "./Components/Flights"
 
 function App() {
@@ -30,6 +29,7 @@ function App() {
               <PrivateRoute exact path="/planner" component={Planner}/>
               <PrivateRoute exact path="/flights" component={Flights}/>
               <PrivateRoute path="/about" component={About} />
+              <PrivateRoute path="/forums" component={Forums}/>
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />

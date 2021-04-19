@@ -13,13 +13,17 @@ export default function Navbar({ logout }) {
             title: 'Planner',
             url: '/planner',
         },
+        // {
+        //     title: 'Flights',
+        //     url: '/flights',
+        // },
+        // {
+        //     title: 'About',
+        //     url: '/about',
+        // },
         {
-            title: 'Flights',
-            url: '/flights',
-        },
-        {
-            title: 'About',
-            url: '/about',
+            title: 'Forum',
+            url: '/forums',
         },
         {
             title: 'Profile',
