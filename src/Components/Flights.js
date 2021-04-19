@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar'
 import '../Styles/private.css';
 
-
 /* TODO:
     1) Add 4 boxes (1 date picker, 3 dropdowns): From, To, Date picker and Price range radio button.
     2) Read the countries from https://restcountries.eu/rest/v2/all.
@@ -13,6 +12,7 @@ import '../Styles/private.css';
 
 export default function Flights() {
     const [flights, setFlights] = useState(["Null"]);
+    const [countries, setCountries] = useState([]);
 
     useEffect(() => {
         fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/USD/en-GB/?query=Stockholm", {
@@ -31,15 +31,52 @@ export default function Flights() {
         });
     }, []);
 
+    useEffect(() => {
+        fetch("https://restcountries.eu/rest/v2/all")
+        .then((response) => response.json() )
+        .then((data) => {
+            console.log(data)
+            for(var i=0; i < data.length; i++) {
+                console.log(data[i]);
+            }
+            setCountries(data);
+        })    
+    }, []);
+
     return (
         <div className="flights-page">
             <Navbar/>
             <center className="flights">
                 <h1>Flights page</h1>
                 <h3>Results: </h3>
-
                 <div className="search-box">
-
+                    <select name="Departure" id="dropdown">
+                        <option value="Departure">Departure</option>
+                        {
+                            countries.map((item, index) => {
+                                return (
+                                    <option value={index}>
+                                        {item.name}
+                                    </option>
+                                )
+                            })
+                        }
+                    </select>
+                    <select name="Destination" id="dropdown">
+                        <option value="Destination">Destination</option>
+                        {
+                            countries.map((item, index) => {
+                                return (
+                                    <option value={index}>
+                                        {item.name}
+                                    </option>
+                                )
+                            })
+                        }
+                    </select>
+                    <select name="Price-range" id="dropdown">
+                        <option value="Price range">Price range</option>
+                    </select>
                 </div>
 
                 <div className="results">

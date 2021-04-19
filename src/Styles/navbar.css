@@ -43,6 +43,10 @@ nav ul li a {
     cursor: pointer;
 }
 
+.logout-button:focus {
+    outline: none;
+}
+
 nav ul li:hover {
     background-color: whitesmoke;
 }
