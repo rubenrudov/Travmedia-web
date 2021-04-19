@@ -66,11 +66,17 @@ export default function Dashboard() {
       route: "/flights"
     },
     {
-      name: "Search attractions & restaurants",
-      desc: "In this page you'll be able to view attractions & restaurants by the parameters you'd like to view, we ask you for destination & dates of visit and then we'll let you know what are the best places to visit in the destinition in the dates you've given us.",
+      name: "Forums",
+      desc: "In this page we'll give you the option to learn from others, learn how to get your plan done quickly and quality by reading other's tips and methods.",
       img: rest_illustration,
-      route: "/"
+      route: "/forums"
     },
+    // {
+    //   name: "Search attractions & restaurants",
+    //   desc: "In this page you'll be able to view attractions & restaurants by the parameters you'd like to view, we ask you for destination & dates of visit and then we'll let you know what are the best places to visit in the destinition in the dates you've given us.",
+    //   img: rest_illustration,
+    //   route: "/"
+    // },
   ]
 
   // const onDestinationChange = async (e) => {
@@ -91,7 +97,7 @@ export default function Dashboard() {
 
   // Component return
   return (
-    <div>
+    <div className="home">
       <Navbar logout={
         <Button className="logout-button"  variant="link" onClick={handleLogout}>
           Log Out
@@ -128,12 +134,40 @@ export default function Dashboard() {
               }
             </div>
         </div>
+        <br/>
       </div>
       <br/>
-      
-      <div className="gallery">
-          <p>Gallery section</p>
-      </div>
-    </div>
+
+      {/*
+      <div className="container">
+        <div class="gallery">
+          <a target="_blank" href="img_5terre.jpg">
+            <img src={rest_illustration} alt="Cinque Terre" width="600" height="400"/>
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="img_forest.jpg">
+            <img src={rest_illustration} alt="Forest" width="600" height="400"/>
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="img_lights.jpg">
+            <img src={rest_illustration} alt="Northern Lights" width="600" height="400"/>
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="img_mountains.jpg">
+            <img src={rest_illustration} alt="Mountains" width="600" height="400"/>
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+      </div>*/}
+  </div>
   )
 }
