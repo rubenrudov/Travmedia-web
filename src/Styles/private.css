@@ -3,12 +3,6 @@ h2 {
     padding: 15px;
 }
 
-.container {
-    text-align: center;
-    justify-content: center;
-    display: flex;
-}
-
 .gallery {
     margin: 5px;
     border: 2px solid white;
