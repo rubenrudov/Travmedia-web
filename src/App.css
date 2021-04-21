@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'New Tegomin', serif;
+  font-family: 'Raleway', sans-serif;
   overflow-x: hidden;
   --eden: #114C5F;
   --pelorous: #40A4BC;
