@@ -11,6 +11,22 @@
   --tower-gray: #A8C0C4;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  background-image: linear-gradient(180deg, var(--glacier), var(--tower-gray));
+}
+
+::-webkit-scrollbar-thumb {
+  padding: 5px;
+  background-color: var(--pelorous);
+  border-radius: 24px;
+  transition: all 0.6s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+}
+
 .App {
     background-image: linear-gradient(180deg, var(--glacier), var(--tower-gray));
 }
