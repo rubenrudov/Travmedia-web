@@ -21,10 +21,10 @@ export default function Navbar({ logout }) {
         //     title: 'About',
         //     url: '/about',
         // },
-        {
-            title: 'Forum',
-            url: '/forums',
-        },
+        // {
+        //     title: 'Forum',
+        //     url: '/forums',
+        // },
         {
             title: 'Profile',
             url: '/update-profile',

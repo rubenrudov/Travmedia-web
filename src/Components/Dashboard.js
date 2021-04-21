@@ -18,15 +18,9 @@ export default function Dashboard() {
   const [destination, setDestination] = useState("");
   const [hotels, setHotels] = useState([]);
 
-
-  // useEffect(() => {
-  //   var destination = "Tel Aviv";
-  // }, []);
-
   // Logout function -> could be used in any private route but actually used only in the homepage
   async function handleLogout() {
-    setError("")
-
+    setError("");
     try {
       await logout()
       history.push("/login")
