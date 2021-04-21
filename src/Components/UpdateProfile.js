@@ -45,44 +45,54 @@ export default function UpdateProfile() {
   return (
     <div>
       <Navbar/>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Update Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                ref={emailRef}
-                required
-                defaultValue={currentUser.email}
-              />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                ref={passwordRef}
-                placeholder="Leave blank to keep the same"
-              />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control
-                type="password"
-                ref={passwordConfirmRef}
-                placeholder="Leave blank to keep the same"
-              />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Update
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        <Link to="/">Cancel</Link>
+      <h2 className="text-center mb-4">Update Profile</h2>
+      <div className="login">
+        <Card>
+          <Card.Body className="card-body">
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label className="label">Email</Form.Label>
+                <br/>
+                <Form.Control
+                  className="input"
+                  type="email"
+                  ref={emailRef}
+                  required
+                  defaultValue={currentUser.email}
+                />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label className="label">Password</Form.Label>
+                <br/>
+                <Form.Control
+                  className="input"
+                  type="password"
+                  ref={passwordRef}
+                  placeholder="Leave blank to keep the same"
+                />
+              </Form.Group>
+              <Form.Group id="password-confirm">
+                <Form.Label className="label">Password Confirmation</Form.Label>
+                <br/>
+                <Form.Control
+                  className="input"
+                  type="password"
+                  ref={passwordConfirmRef}
+                  placeholder="Leave blank to keep the same"
+                />
+              </Form.Group>
+              <br/>
+              <Button disabled={loading} className="submit-btn" type="submit">
+                Update
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+        <br/>
+        <div className="btn1">
+          <p><Link to="/">Cancel</Link></p>
+        </div>
       </div>
     </div>
   )
