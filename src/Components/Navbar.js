@@ -3,7 +3,6 @@ import '../Styles/navbar.css'
 import website_logo from '../Assets/website_logo.jpeg'
 
 export default function Navbar({ logout }) {
-
     const MenuItems = [
         {
             title: 'Home',
