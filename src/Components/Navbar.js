@@ -16,10 +16,10 @@ export default function Navbar({ logout }) {
         //     title: 'Flights',
         //     url: '/flights',
         // },
-        // {
-        //     title: 'About',
-        //     url: '/about',
-        // },
+        {
+            title: 'About',
+            url: '/about',
+        },
         // {
         //     title: 'Forum',
         //     url: '/forums',
