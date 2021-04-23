@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './Navbar'
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import { getDatabase, ref, onValue} from "firebase/database";
 import app from '../fireb'
 
 export default function Planner() {
@@ -10,14 +9,10 @@ export default function Planner() {
     // Hooks
     const { currentUser, logout } = useAuth()
     const history = useHistory();
-    const database = getDatabase();
-
-
-    var starCountRef = app.database().ref('trips/user1');
-        starCountRef.on('value', (snapshot) => {
-        const data = snapshot.val();
-        updateStarCount(postElement, data);
-    });
+    const [plan, setPlan] = useState([{}]);
+    const [title, setTitle] = useState();
+    const [desc, setDesc] = useState("");
+    const [content, setContent] = useState("");
 
     // Function for getting the "name" part from an email
     // Example: ruby.rudov from ruby.rudov@gmail.com
@@ -34,10 +29,34 @@ export default function Planner() {
         return username;
     }
 
-    function getData() {
-        return (
-            "Data from firebase"
-        );
+    const handleOnChangeTitle = (e) => {
+        setTitle(e.target.value);
+    }
+
+    const handleOnChangeDesc = (e) => {
+        setDesc(e.target.value);
+    }
+
+    const handleOnChangeContent = (e) => {
+        setContent(e.target.value);
+    }
+
+    const createPlan = () => {
+        const planRef = app.database().ref(`${getUname(currentUser.email).replace(".", "")}/plans`);
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const plan = {
+            title: title,
+            desc: desc,
+            content: content,
+            date: date
+        };
+
+        // Pushing the JSON into the plans reference 
+        planRef.push(plan)
+        setTitle("");
+        setDesc("");
+        setContent("");
     }
 
     return (
@@ -49,14 +68,25 @@ export default function Planner() {
             </h2>
             <br/>
             <div className="trip-details">
-                <h3>Trip details: {getData()}</h3>
+                <h3>Trip details: {}</h3>
             </div>
             <div className="plan">
                 {
-                  /*
-                     
-                  */
+                  plan.map((item, index) => {
+                      return (
+                          <div>
+                              <h3>{item.title}</h3>
+                              <p>{item.desc}</p>
+                          </div>
+                      )
+                  })
                 }
+            </div>
+            <div className="add-plan">
+                <input onChange={handleOnChangeTitle} value={title}/>
+                <input onChange={handleOnChangeDesc} value={desc}/>
+                <input onChange={handleOnChangeContent} value={content}/>
+                <button onClick={createPlan}>Save plan</button>
             </div>
         </div>
     );
