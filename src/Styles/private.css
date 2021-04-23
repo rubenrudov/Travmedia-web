@@ -146,7 +146,61 @@ select option {
     font-weight: 800;
 }
 
+.add-plan {
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid var(--eden);
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    text-align: justify;
+}
 
+.add-plan label {
+    font-size: 18px;
+    color: whitesmoke;
+}
+
+.destinations {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    max-width: 4000px;
+    overflow-x: scroll;
+}
+
+.destinations .destination {
+    min-width: 250px;
+    border-radius: 25px;
+    border: 2px solid var(--eden);
+    background-color: aliceblue;
+    overflow-y: scroll;
+    width: 1000px;
+    max-height: 100px;
+    padding: 25px;
+    margin: 15px;
+}
+
+.destinations .destination h4 {
+    min-width: 250px;
+    color: var(--eden);
+    font-size: larger;
+}
+
+.destinations .destination h6 {
+    color: var(--pelorous);
+    font-size: small;
+}
+
+.destinations .destination p {
+    color: var(--pelorous);
+    font-size: small;
+}
+
+.destinations .destination span {
+    color: var(--pelorous);
+    font-size: small;
+}
 /*
     TODO:
     1) Responsivity for params box.

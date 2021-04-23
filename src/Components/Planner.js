@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar'
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
@@ -9,7 +9,7 @@ export default function Planner() {
     // Hooks
     const { currentUser, logout } = useAuth()
     const history = useHistory();
-    const [plan, setPlan] = useState([{}]);
+    const [destinations, setDestinations] = useState([{}]);
     const [title, setTitle] = useState();
     const [desc, setDesc] = useState("");
     const [content, setContent] = useState("");
@@ -59,35 +59,63 @@ export default function Planner() {
         setContent("");
     }
 
+    useEffect(() => {
+        const planRef = app.database().ref(`${getUname(currentUser.email).replace(".", "")}/plans`);
+        planRef.on('value', (snapshot) => {
+            const plans = snapshot.val();
+            const destinationsList = [];
+            for (let child in plans) {
+                destinationsList.push(plans[child]);
+            }
+            console.log(destinationsList)
+            setDestinations(destinationsList);
+        });
+    }, []);
+
     return (
         <div>
             <Navbar/>
-            <h2>Your next trip plan by: <span
+            <h2>
+                Upcoming destinations for: <span
                     style={{color: 'var(--eden)', textDecoration: "underline"}}>{getUname(currentUser.email)}
                  </span>
             </h2>
             <br/>
-            <div className="trip-details">
-                <h3>Trip details: {}</h3>
+            <div className="next-destinations">
+                <h3>Destinations list:</h3>
+                <div className="destinations">
+                    {
+                        destinations.map((dest, index) => {
+                            return (
+                                <div className="destination" key={index}>
+                                    <h4>{dest.title}</h4>
+                                    <h6>{dest.desc}</h6>
+                                    <br/>
+                                    <p>{dest.content}</p>
+                                    <span>Last edit: {dest.date}</span>
+                                    <br/>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
-            <div className="plan">
-                {
-                  plan.map((item, index) => {
-                      return (
-                          <div>
-                              <h3>{item.title}</h3>
-                              <p>{item.desc}</p>
-                          </div>
-                      )
-                  })
-                }
-            </div>
-            <div className="add-plan">
-                <input onChange={handleOnChangeTitle} value={title}/>
-                <input onChange={handleOnChangeDesc} value={desc}/>
-                <input onChange={handleOnChangeContent} value={content}/>
-                <button onClick={createPlan}>Save plan</button>
-            </div>
+            <br/>
+            <center>
+                <div className="add-plan">
+                <center><h2><u>Add new destination into your list</u></h2></center>
+                    <label>Destination title</label>
+                    <input className="input" onChange={handleOnChangeTitle} value={title}/>
+                    <br/>
+                    <label>Destination description</label>
+                    <input className="input" onChange={handleOnChangeDesc} value={desc}/>
+                    <br/>
+                    <label>Some content about the destination</label>
+                    <input className="input" onChange={handleOnChangeContent} value={content}/>
+                    <br/>
+                    <button className="submit-button" onClick={createPlan}>Save plan</button>
+                </div>
+            </center>
         </div>
     );
 }
