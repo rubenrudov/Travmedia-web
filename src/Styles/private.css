@@ -180,14 +180,18 @@ select option {
     overflow-x: scroll;
 }
 
-.destinations::-webkit-scrollbar, .destination::-webkit-scrollbar{
+.destinations::-webkit-scrollbar {
+    width: 8px;
+    background:var(--glacier);
+}
+
+.destination::-webkit-scrollbar {
     width: 0px;
-    background:var(--pelorous);
 }
   
 .destinations::-webkit-scrollbar-thumb, .destination::-webkit-scrollbar-thumb {
     padding: 5px;
-    color: var(--glacier)
+    color: white;
 }
 
 .destinations .destination {
