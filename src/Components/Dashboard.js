@@ -104,9 +104,9 @@ export default function Dashboard() {
               {
                 Services.map((item, index) => {
                   return (
-                    <>
+                    <div key={index}>
                       <br/>
-                      <div key={index} className="service">
+                      <div  className="service">
                           <h3>{item.name}</h3>
                           <br/>
                           <p>{item.desc}</p>
@@ -120,7 +120,7 @@ export default function Dashboard() {
                                {item.route === "/" ? "Scroll down for more info" : `To ${item.name.toLowerCase()} page`}
                           </a>
                       </div>
-                    </>
+                    </div>
                   );
                 })
               }

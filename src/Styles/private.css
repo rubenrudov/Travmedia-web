@@ -227,8 +227,27 @@ select option {
     font-size: small;
 }
 
-/*
-    TODO:
-    1) Responsivity for params box.
-    2) Responsivity for the home page elements
-*/
+.feed::-webkit-scrollbar {
+    border: 3px solid whitesmoke;
+}
+
+.feed {
+    margin: 15px;
+    padding: 35px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.feed .post {
+    padding: 15px;
+    border-top: 1px solid var(--pelorous);
+    overflow-y: scroll;
+    min-height: 250px;
+}
+
+.add-post {
+
+}

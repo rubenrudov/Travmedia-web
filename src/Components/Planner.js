@@ -9,8 +9,8 @@ export default function Planner() {
     // Hooks
     const { currentUser, logout } = useAuth()
     const history = useHistory();
-    const [destinations, setDestinations] = useState([{}]);
-    const [title, setTitle] = useState();
+    const [destinations, setDestinations] = useState([{title: "Enter new destination you'd like to visit"}]);
+    const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [content, setContent] = useState("");
 
