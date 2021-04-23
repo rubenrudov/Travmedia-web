@@ -149,7 +149,7 @@ select option {
 .add-plan {
     border-radius: 15px;
     padding: 15px;
-    border: 1px solid var(--eden);
+    border: 2px solid var(--eden);
     display: flex;
     flex-direction: column;
     width: fit-content;
