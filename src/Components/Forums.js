@@ -43,9 +43,8 @@ export default function () {
     const createPost = () => {
         const planRef = app.database().ref("posts");
         var today = new Date();
-        var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-        var format = date.split();
-        console.log(format)
+        var date = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
+    
         const plan = {
             publisher: getUname(currentUser.email).replace(".", ""),
             title: title,

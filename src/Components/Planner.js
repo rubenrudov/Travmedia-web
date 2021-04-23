@@ -44,7 +44,7 @@ export default function Planner() {
     const createPlan = () => {
         const planRef = app.database().ref(`${getUname(currentUser.email).replace(".", "")}/plans`);
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
         const plan = {
             title: title,
             desc: desc,

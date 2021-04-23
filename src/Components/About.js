@@ -14,9 +14,29 @@ export default function About() {
                 Our idea is to comine all the platforms that benefit travelers into a single platform by a smart web application. <br/>
                 The project was started by our leader, Ruben Rudov as a school graduation project and now being developed by our team.
             </div>
-            <GitHub username="rubenrudov"/>
-            <GitHub username="adamal92"/>
-            <GitHub username="nitrogen777"/>
+
+            <center>
+                <h2><u>Our team</u></h2>
+                <div className="our-team">
+                    <br/>
+                    <p>Ruben Rudov - Full Stack development & management</p>
+                    <br/>
+                    <GitHub username="rubenrudov"/>
+                    <br/>
+                    <p>Adam Livne - Data Analyst</p>
+                    <br/>
+                    <GitHub username="adamal92"/>
+                    <br/>
+                    <p>Eyal Shapiro - Backend development</p>
+                    <br/>
+                    <GitHub username="nitrogen777"/>
+                    <br/>
+                    <br/>
+                    <p>Organization's github</p>
+                    <GitHub username="travmedia-il"/>
+                </div>
+            </center>
+            
         </div>
     );
 }
