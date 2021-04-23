@@ -161,6 +161,12 @@ select option {
     color: whitesmoke;
 }
 
+.next-destinations h3 {
+    color: whitesmoke;
+    padding: 15px;
+    text-decoration: underline;
+}
+
 .destinations {
     display: flex;
     flex-direction: row;

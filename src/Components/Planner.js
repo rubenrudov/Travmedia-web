@@ -73,7 +73,7 @@ export default function Planner() {
     }, []);
 
     return (
-        <div>
+        <div className="planner-page">
             <Navbar/>
             <h2>
                 Upcoming destinations for: <span
@@ -83,6 +83,7 @@ export default function Planner() {
             <br/>
             <div className="next-destinations">
                 <h3>Destinations list:</h3>
+                <br/>
                 <div className="destinations">
                     {
                         destinations.map((dest, index) => {
@@ -100,6 +101,7 @@ export default function Planner() {
                     }
                 </div>
             </div>
+            <br/>
             <br/>
             <center>
                 <div className="add-plan">
