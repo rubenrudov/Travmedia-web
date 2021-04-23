@@ -248,6 +248,11 @@ select option {
     min-height: 250px;
 }
 
-.add-post {
+.about-page h2 {
+    font-size: 30px !important;
+}
 
+.info-container {
+    padding: 20px;
+    font-size: x-large;
 }

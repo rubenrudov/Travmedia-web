@@ -78,6 +78,9 @@ export default function () {
             <Navbar/>
             <h2>Welcome to posts page</h2>
             <div className="feed">
+                <div className="filtering-bar">
+
+                </div>
                 {
                     posts.map((post, index) => {
                         return (
