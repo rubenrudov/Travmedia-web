@@ -161,6 +161,11 @@ select option {
     color: whitesmoke;
 }
 
+.add-plan textarea{
+    resize: vertical !important;
+    min-height: 45px;
+}
+
 .next-destinations h3 {
     color: whitesmoke;
     padding: 15px;
@@ -173,6 +178,16 @@ select option {
     padding: 10px;
     max-width: 4000px;
     overflow-x: scroll;
+}
+
+.destinations::-webkit-scrollbar, .destination::-webkit-scrollbar{
+    width: 0px;
+    background:var(--pelorous);
+}
+  
+.destinations::-webkit-scrollbar-thumb, .destination::-webkit-scrollbar-thumb {
+    padding: 5px;
+    color: var(--glacier)
 }
 
 .destinations .destination {
@@ -207,6 +222,7 @@ select option {
     color: var(--pelorous);
     font-size: small;
 }
+
 /*
     TODO:
     1) Responsivity for params box.

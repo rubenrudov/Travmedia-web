@@ -113,7 +113,7 @@ export default function Planner() {
                     <input className="input" onChange={handleOnChangeDesc} value={desc}/>
                     <br/>
                     <label>Some content about the destination</label>
-                    <input className="input" onChange={handleOnChangeContent} value={content}/>
+                    <textarea className="input" onChange={handleOnChangeContent} value={content}/>
                     <br/>
                     <button className="submit-button" onClick={createPlan}>Save plan</button>
                 </div>
