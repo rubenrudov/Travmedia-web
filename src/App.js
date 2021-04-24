@@ -27,7 +27,7 @@ function App() {
               <PrivateRoute exact path="/" component={Dashboard} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <PrivateRoute exact path="/planner" component={Planner}/>
-              <PrivateRoute exact path="/flights" component={Flights}/>
+              {/*<PrivateRoute exact path="/flights" component={Flights}/>*/}
               <PrivateRoute path="/about" component={About} />
               <PrivateRoute path="/forums" component={Forums}/>
               <Route path="/signup" component={Signup} />

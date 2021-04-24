@@ -52,16 +52,17 @@ export default function Dashboard() {
       route: "/planner"
     },
     {
-      name: "Search flights",
-      desc: "In this page we'll help you find the best flight for your causes, we ask you for dates, destination & budjet and then we'll show you the best flights we could find for you and links for the tickets",
-      img: flight_illustration,
-      route: "/flights"
-    },
-    {
       name: "Forums",
       desc: "In this page we'll give you the option to learn from others, learn how to get your plan done quickly and quality by reading other's tips and methods.",
       img: rest_illustration,
       route: "/forums"
+    },
+    {
+      name: "Search flights",
+      desc: "Page isn't available for now...",
+      desc2: "In this page we'll help you find the best flight for your causes, we ask you for dates, destination & budjet and then we'll show you the best flights we could find for you and links for the tickets",
+      img: flight_illustration,
+      route: "/flights"
     },
     // {
     //   name: "Search attractions & restaurants",
