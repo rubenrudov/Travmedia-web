@@ -84,6 +84,9 @@ export default function () {
                     posts.map((post, index) => {
                         return (
                             <div className="post" key={index}>
+                                <div className="comments" style={{position: "sticky", bottom: "0"}}>
+                                        comments link
+                                </div>
                                 <h3><u>Title</u>: {post.title}</h3>
                                 <h4><u>By</u>: {post.publisher}</h4>
                                 <p><u>Content:</u> {post.content}</p>

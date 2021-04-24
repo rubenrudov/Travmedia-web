@@ -19,7 +19,7 @@ export default function About() {
                 <h2><u>Our team</u></h2>
                 <div className="our-team">
                     <br/>
-                    <p>Ruben Rudov - Full Stack development & management</p>
+                    <p>Ruben Rudov - Full Stack development</p>
                     <br/>
                     <GitHub username="rubenrudov"/>
                     <br/>
