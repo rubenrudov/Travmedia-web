@@ -3,18 +3,68 @@ import Navbar from './Navbar'
 import '../Styles/private.css';
 import { Button } from 'react-bootstrap';
 
-/* TODO:
-    1) Add 4 boxes (1 date picker, 3 dropdowns): From, To, Date picker and Price range radio button.
-    2) Implement searching via skyscanner api.
-    3) Design the countries dropdown with domw flasgs (see the corona webapp)
-*/
+import { withStyles } from '@material-ui/core/styles';
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@material-ui/icons/Close';
 
+const styles = (theme) => ({
+    root: {
+      margin: 0,
+    },
+    closeButton: {
+      position: 'relative',
+      color: "white",
+      background: "var(--eden)"
+    },
+  });
+  
+  const DialogTitle = withStyles(styles)((props) => {
+    const { children, classes, onClose, ...other } = props;
+    return (
+      <MuiDialogTitle disableTypography className={classes.root} {...other}>
+          {onClose ? (
+          <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+            <CloseIcon />
+          </IconButton>
+        ) : null}
+        <br/><br/>
+        <Typography variant="h6">{children}</Typography>
+      </MuiDialogTitle>
+    );
+  });
+  
+  const DialogContent = withStyles((theme) => ({
+    root: {
+      color: "var(--eden)"
+    },
+  }))(MuiDialogContent);
+  
+  const DialogActions = withStyles((theme) => ({
+    root: {
+      margin: 0,
+      color: "var(--eden)",
+    },
+  }))(MuiDialogActions);
 
 export default function Flights() {
     const [flights, setFlights] = useState(["Null"]);
     const [countries, setCountries] = useState([]);
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");
+
+    const [open, setOpen] = React.useState(true);
+  
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     useEffect(() => {
         fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/USD/en-GB/?query=Stockholm", {
@@ -53,10 +103,19 @@ export default function Flights() {
 
     return (
         <div className="flights-page">
+            <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+                <DialogContent dividers  style={{background: "var(--glacier)"}} >
+                    <DialogTitle style={{color: "var(--eden)"}} onClose={handleClose}>
+                    Warning !
+                    </DialogTitle>
+                    <Typography style={{color: "var(--eden)"}} gutterBottom>
+                        This section isn't functional for now, check later for updates
+                    </Typography>
+                </DialogContent>
+            </Dialog>
             <Navbar/>
+            <h2>Flights page</h2>
             <center className="flights">
-                <h1>Flights page</h1>
-                <h3>Results: </h3>
                 <div className="search-box">
                     <select name="Departure">
                         <option value="Departure">Departure</option>
@@ -93,7 +152,8 @@ export default function Flights() {
                     </Button>
                 </div>
                 <div className="results">
-                    <p>{flights.PlaceName}</p>
+                    <h3 style={{textAlign: "start"}}><u>Results: </u></h3>
+                    <br/>
                 </div>
             </center>
         </div>
