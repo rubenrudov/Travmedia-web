@@ -1,4 +1,4 @@
-# Travmedia
+# Travmedia :earth_africa:
 
 Travmedia is a platform that allows every single traveler save a lot of time that usually wasted on trip planning, the platform provides accessibility for some popular traveling dedicated platforms under one single platform with some additional helpful features.
 
