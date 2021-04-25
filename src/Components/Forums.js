@@ -3,12 +3,15 @@ import Navbar from './Navbar'
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import app from '../fireb'
+import CommentsDialog from './CommentsDialog';
 
 export default function () {
 
     // Hooks
     const { currentUser, logout } = useAuth();
     // For uploading
+    const [open, setOpen] = useState(false)
+    const [dialogPost, setDialog] = useState({})
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [date, setDate] = useState("date");
@@ -17,7 +20,7 @@ export default function () {
     // Example: ruby.rudov from ruby.rudov@gmail.com
     function getUname(email) {
         var username = "";
-        for(var i = 1; i < email.length; i++) {
+        for (var i = 1; i < email.length; i++) {
             if (email[i] != "@") {
                 username += email[i - 1]
             } else {
@@ -29,7 +32,7 @@ export default function () {
     }
 
     // For getting posts
-    const [posts, setPosts] = useState([{}]);
+    const [posts, setPosts] = useState([{ ref: "", post: {} }]);
 
     // "Function" constants
     const handleOnChangeTitle = (e) => {
@@ -40,11 +43,26 @@ export default function () {
         setContent(e.target.value);
     }
 
+    const handleOpen = (pair) => {
+        setDialog(pair);
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleDialogDisplay = () => {
+        if(open){
+            return(<CommentsDialog post={dialogPost} open={open} onClose={handleClose} />)
+        }
+    }
+
     const createPost = () => {
         const planRef = app.database().ref("posts");
         var today = new Date();
-        var date = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
-    
+        var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+
         const plan = {
             publisher: getUname(currentUser.email).replace(".", ""),
             title: title,
@@ -62,11 +80,11 @@ export default function () {
         const planRef = app.database().ref("posts");
         planRef.on('value', (snapshot) => {
             const plans = snapshot.val();
+            // things are about to really messy
             const destinationsList = [];
             for (let child in plans) {
-                destinationsList.push(plans[child]);
+                destinationsList.push({ ref: child, post: plans[child] });
             }
-            console.log(destinationsList)
             setPosts(destinationsList);
         });
     }, []);
@@ -74,41 +92,45 @@ export default function () {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <h2>Welcome to posts page</h2>
             <div className="feed">
                 <div className="filtering-bar">
 
                 </div>
                 {
-                    posts.map((post, index) => {
+                    posts.map((pair, index) => {
                         return (
                             <div className="post" key={index}>
-                                <div className="comments" style={{position: "sticky", bottom: "0"}}>
-                                        comments link
+                                <div className="comments" style={{ position: "sticky", bottom: "0" }}>
+                                    <button className="comments-button" onClick={() => handleOpen(pair)}>Comments</button>
                                 </div>
-                                <h3><u>Title</u>: {post.title}</h3>
-                                <h4><u>By</u>: {post.publisher}</h4>
-                                <p><u>Content:</u> {post.content}</p>
+                                <h3><u>Title</u>: {pair.post.title}</h3>
+                                <h4><u>By</u>: {pair.post.publisher}</h4>
+                                <p><u>Content:</u> {pair.post.content}</p>
                             </div>
                         )
                     })
                 }
             </div>
-            <br/>
+            <br />
             <center>
                 <div className="add-plan">
                     <center><h2><u>Create new post</u></h2></center>
                     <label>Post title</label>
-                    <input className="input" onChange={handleOnChangeTitle} value={title}/>
-                    <br/>
+                    <input className="input" onChange={handleOnChangeTitle} value={title} />
+                    <br />
                     <label>Some content for the post</label>
-                    <textarea className="input" onChange={handleOnChangeContent} value={content}/>
-                    <br/>
-                    <button className="submit-button" onClick={createPost}>Uload post</button>
+                    <textarea className="input" onChange={handleOnChangeContent} value={content} />
+                    <br />
+                    <button className="submit-button" onClick={createPost}>Upload post</button>
                 </div>
             </center>
-            <br/>
+            <br />
+            {
+                handleDialogDisplay()
+            }
+            
         </div>
     );
 }
