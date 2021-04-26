@@ -19,21 +19,6 @@ export default function About() {
                 <h2><u>Our team</u></h2>
                 <div className="our-team">
                     <br/>
-                    <p>Ruben Rudov - Full Stack development</p>
-                    <br/>
-                    <GitHub username="rubenrudov"/>
-                    <br/>
-                    <p>Adam Livne - Data Analyst</p>
-                    <br/>
-                    <GitHub username="adamal92"/>
-                    <br/>
-                    <p>Eyal Shapiro - Backend development</p>
-                    <br/>
-                    <GitHub username="nitrogen777"/>
-                    <br/>
-                    <br/>
-                    <p>Organization's github</p>
-                    <GitHub username="travmedia-il"/>
                 </div>
             </center>
             

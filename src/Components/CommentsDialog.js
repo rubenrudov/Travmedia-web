@@ -87,13 +87,13 @@ export default function (props) {
     // helpers
 
     return (
-        <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+        <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open} className="comments-dialog">
             <div className="original-post">
                 <h3><u>Title</u>: {post.post.title}</h3>
                 <h4><u>By</u>: {post.post.publisher}</h4>
                 <p><u>Content:</u> {post.post.content}</p>
             </div>
-            <div className="feed">
+            <div className="comments-feed">
                 {
                     comments.map((comment, index) => {
                         return (
@@ -107,15 +107,14 @@ export default function (props) {
                 }
             </div>
             <br />
-            <center>
                 <div>
-                    <center><h2><u>Create new comment</u></h2></center>
-                    <label>Some content for the comment</label>
-                    <textarea className="input" onChange={handleOnChangeContent} value={content} />
-                    <br />
-                    <button className="submit-button" onClick={createComment}>Upload Comment</button>
+                    <center><h2 style={{color: "var(--eden)"}}><u>Comment on this post</u></h2></center>
+                    <center>
+                        <textarea className="input comment-input" onChange={handleOnChangeContent} value={content} placeholder="Enter comment"/>
+                        <br/>
+                        <button className="submit-button" onClick={createComment}>Upload Comment</button>
+                    </center>
                 </div>
-            </center>
             <br />
         </Dialog>
     );

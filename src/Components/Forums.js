@@ -4,6 +4,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import app from '../fireb'
 import CommentsDialog from './CommentsDialog';
+import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function () {
 
@@ -95,15 +97,14 @@ export default function () {
             <Navbar />
             <h2>Welcome to posts page</h2>
             <div className="feed">
-                <div className="filtering-bar">
-
-                </div>
                 {
                     posts.map((pair, index) => {
                         return (
                             <div className="post" key={index}>
                                 <div className="comments" style={{ position: "sticky", bottom: "0" }}>
-                                    <button className="comments-button" onClick={() => handleOpen(pair)}>Comments</button>
+                                    <button className="comments-button" onClick={() => handleOpen(pair)}>
+                                        <FontAwesomeIcon className="comment-icon" icon={faComment}/>
+                                    </button>
                                 </div>
                                 <h3><u>Title</u>: {pair.post.title}</h3>
                                 <h4><u>By</u>: {pair.post.publisher}</h4>

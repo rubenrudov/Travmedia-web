@@ -161,9 +161,15 @@ select option {
     color: whitesmoke;
 }
 
-.add-plan textarea{
+.add-plan textarea, .comment-input{
     resize: vertical !important;
     min-height: 45px;
+}
+
+.input.comment-input {
+    padding: 20px;
+    margin: 20px;
+    width: 400px;
 }
 
 .next-destinations h3 {
@@ -243,6 +249,18 @@ select option {
     border-radius: 15px 0 0 15px;
 }
 
+.comments-feed {
+    margin: 15px;
+    padding: 35px;
+    min-height: 30px;
+    height: auto;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    border-radius: 15px 0 0 15px;
+}
+
 .feed .post {
     padding: 15px;
     border-top: 1px solid var(--pelorous);
@@ -272,6 +290,60 @@ select option {
     padding: 5px;
     text-decoration: underline;
     font-weight: 700;
+}
+
+.original-post {
+    position: relative;
+    padding: 35px;
+    margin: 10px;
+    min-height: 70px;
+    height: auto;
+    overflow-y: hidden;
+}
+
+.comment {
+    position: relative;
+    height: auto;
+    overflow-y: hidden;
+    min-height: 60px;
+}
+
+.comments-dialog {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.comments-button {
+    justify-content: center;
+    padding: 7px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: none;
+    transition: all 0.85s;
+}
+
+.comments-button:hover {
+    border: 1px solid var(--eden);
+}
+
+.comment-icon {
+    font-size: larger;
+    color: var(--eden);
+    border: 1px solid none;
+    transition: all 0.85s;
+}
+
+.comments-button:hover .comment-icon {
+    opacity: 0.75;
+}
+
+
+.add-comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
 }
 
 @media (max-width: 500px) {
