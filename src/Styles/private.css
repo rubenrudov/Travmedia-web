@@ -342,7 +342,7 @@ select option {
     min-height: 350px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .content {
         display: flex;
         flex-direction: column;
