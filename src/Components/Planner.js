@@ -3,13 +3,15 @@ import Navbar from './Navbar'
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import app from '../fireb'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Planner() {
 
     // Hooks
     const { currentUser, logout } = useAuth()
     const history = useHistory();
-    const [destinations, setDestinations] = useState([{title: "Enter new destination you'd like to visit"}]);
+    const [destinations, setDestinations] = useState([{ref: "", plan: {}}]);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [content, setContent] = useState("");
@@ -59,13 +61,20 @@ export default function Planner() {
         setContent("");
     }
 
+    
+    function deletePlan(pair) {
+        let ref = pair.ref;
+        let username = getUname(currentUser.email).replace(".", "");
+        app.database().ref(username + "/plans/" + ref).remove();
+    }
+
     useEffect(() => {
         const planRef = app.database().ref(`${getUname(currentUser.email).replace(".", "")}/plans`);
         planRef.on('value', (snapshot) => {
             const plans = snapshot.val();
             const destinationsList = [];
             for (let child in plans) {
-                destinationsList.push(plans[child]);
+                destinationsList.push({ref: child, plan: plans[child]});
             }
             console.log(destinationsList)
             setDestinations(destinationsList);
@@ -89,12 +98,15 @@ export default function Planner() {
                         destinations.map((dest, index) => {
                             return (
                                 <div className="destination" key={index}>
-                                    <h4>{dest.title}</h4>
-                                    <h6>{dest.desc}</h6>
+                                    <h4>{dest.plan.title}</h4>
+                                    <h6>{dest.plan.desc}</h6>
                                     <br/>
-                                    <p>{dest.content}</p>
+                                    <p>{dest.plan.content}</p>
                                     <span>Last edit: {dest.date}</span>
                                     <br/>
+                                    <button className="comments-button" onClick={() => deletePlan(dest)}>
+                                        <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
+                                    </button>
                                 </div>
                             )
                         })
