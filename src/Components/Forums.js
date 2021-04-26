@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import app from '../fireb'
 import CommentsDialog from './CommentsDialog';
-import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { faComment, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function () {
@@ -92,6 +92,11 @@ export default function () {
     }, []);
     // helpers
 
+    function deletePost(pair) {
+        let ref = pair.ref;
+        app.database().ref(`posts/${ref}`).remove();
+    }
+
     return (
         <div>
             <Navbar />
@@ -105,6 +110,14 @@ export default function () {
                                     <button className="comments-button" onClick={() => handleOpen(pair)}>
                                         <FontAwesomeIcon className="comment-icon" icon={faComment}/>
                                     </button>
+                                    {
+                                    pair.post.publisher === getUname(currentUser.email).replace(".", "") ? 
+                                        <button className="comments-button" onClick={() => deletePost(pair)}>
+                                            <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
+                                        </button>
+                                        :
+                                        null
+                                    }
                                 </div>
                                 <h3><u>Title</u>: {pair.post.title}</h3>
                                 <h4><u>By</u>: {pair.post.publisher}</h4>
