@@ -107,7 +107,7 @@ export default function (props) {
                 }
             </div>
             <br />
-                <div>
+                <div className="add-comment">
                     <center><h2 style={{color: "var(--eden)"}}><u>Comment on this post</u></h2></center>
                     <center>
                         <textarea className="input comment-input" onChange={handleOnChangeContent} value={content} placeholder="Enter comment"/>
