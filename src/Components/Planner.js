@@ -98,15 +98,14 @@ export default function Planner() {
                         destinations.map((dest, index) => {
                             return (
                                 <div className="destination" key={index}>
+                                    <button className="comments-button" onClick={() => deletePlan(dest)}>
+                                        <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
+                                    </button>
                                     <h4>{dest.plan.title}</h4>
                                     <h6>{dest.plan.desc}</h6>
                                     <br/>
                                     <p>{dest.plan.content}</p>
                                     <span>Last edit: {dest.date}</span>
-                                    <br/>
-                                    <button className="comments-button" onClick={() => deletePlan(dest)}>
-                                        <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
-                                    </button>
                                 </div>
                             )
                         })
