@@ -315,9 +315,9 @@ select option {
 
 .comments-button {
     justify-content: center;
-    padding: 7px;
+    padding: 2px;
     border: 1px solid transparent;
-    border-radius: 50%;
+    border-radius: 50px;
     background: none;
     transition: all 0.85s;
 }
@@ -327,7 +327,10 @@ select option {
 }
 
 .comment-icon {
-    font-size: larger;
+    width: auto;
+    height: 20px;
+    margin: 2px;
+    font-size: 20px;
     color: var(--eden);
     border: 1px solid none;
     transition: all 0.85s;

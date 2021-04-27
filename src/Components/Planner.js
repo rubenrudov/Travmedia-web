@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import app from '../fireb'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Planner() {
@@ -100,6 +100,9 @@ export default function Planner() {
                                 <div className="destination" key={index}>
                                     <button className="comments-button" onClick={() => deletePlan(dest)}>
                                         <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
+                                    </button>
+                                    <button className="comments-button" onClick={() => deletePlan(dest)}>
+                                        <FontAwesomeIcon className="comment-icon" icon={faEdit}/>
                                     </button>
                                     <h4>{dest.plan.title}</h4>
                                     <h6>{dest.plan.desc}</h6>

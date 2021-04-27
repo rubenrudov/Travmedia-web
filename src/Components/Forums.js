@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import app from '../fireb'
 import CommentsDialog from './CommentsDialog';
-import { faComment, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faComment, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function () {
@@ -132,9 +132,14 @@ export default function () {
                                     </button>
                                     {
                                     pair.post.publisher === getUname(currentUser.email).replace(".", "") ? 
-                                        <button className="comments-button" onClick={() => deletePost(pair)}>
-                                            <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
-                                        </button>
+                                        <>
+                                            <button className="comments-button" onClick={() => deletePost(pair)}>
+                                                <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
+                                            </button>
+                                            <button className="comments-button" onClick={() => handleOpen(pair)}>
+                                                <FontAwesomeIcon className="comment-icon" icon={faEdit}/>
+                                            </button>
+                                        </>
                                         :
                                         null
                                     }
