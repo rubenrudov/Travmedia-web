@@ -108,7 +108,7 @@ export default function Planner() {
                                     <h6>{dest.plan.desc}</h6>
                                     <br/>
                                     <p>{dest.plan.content}</p>
-                                    <span>Last edit: {dest.date}</span>
+                                    <span>Last edit: {dest.plan.date}</span>
                                 </div>
                             )
                         })

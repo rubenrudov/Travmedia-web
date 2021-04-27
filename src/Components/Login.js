@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import website_logo from '../Assets/website_logo.jpeg'
 import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faEye, faEyeSlash }  from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Login() {
@@ -13,7 +14,12 @@ export default function Login() {
   const { login } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const history = useHistory();
+  const [invisiblePass, setInvisiblePass] = useState(true);
+
+  const changeVisibility = () => {
+    setInvisiblePass(!invisiblePass);
+  }
 
   // Login function
   async function handleSubmit(e) {
@@ -48,7 +54,8 @@ export default function Login() {
             <Form.Group id="password">
               <Form.Label className="label">Password</Form.Label>
               <br/>
-              <Form.Control className="input" type="password" ref={passwordRef} required />
+              <Form.Control className="input" type={invisiblePass ? "password" : "text"} ref={passwordRef} required/>
+              <FontAwesomeIcon className="vis-icon" icon={invisiblePass ? faEye : faEyeSlash} onClick={changeVisibility}/>
             </Form.Group>
             <br/>
             <Button disabled={loading} className="submit-btn" type="submit">
