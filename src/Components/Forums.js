@@ -34,7 +34,13 @@ export default function () {
     }
 
     // For getting posts
-    const [posts, setPosts] = useState([{ ref: "", post: {} }]);
+    const [posts, setPosts] = useState([{ ref: "", post: {
+        title: "",
+        content: "",
+        comments: [{}],
+        publisher: "",
+        date: ""
+    } }]);
 
     // "Function" constants
     const handleOnChangeTitle = (e) => {
@@ -97,6 +103,19 @@ export default function () {
         app.database().ref(`posts/${ref}`).remove();
     }
 
+    function getNumComments(post) {
+        let len = 0;
+        const planRef = app.database().ref(`posts/${post}/comments`);
+        planRef.on('value', (snapshot) => {
+            const plans = snapshot.val();
+            // things are about to really messy
+            for (let child in plans) {
+                len++;
+            }
+        });
+        return len;
+    }
+
     return (
         <div>
             <Navbar />
@@ -122,6 +141,8 @@ export default function () {
                                 <h3><u>Title</u>: {pair.post.title}</h3>
                                 <h4><u>By</u>: {pair.post.publisher}</h4>
                                 <p><u>Content:</u> {pair.post.content}</p>
+                                <br/>
+                                <p>Comments amount: {getNumComments(pair.ref)}</p>
                             </div>
                         )
                     })
