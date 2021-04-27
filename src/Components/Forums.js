@@ -126,6 +126,7 @@ export default function () {
                         return (
                             <div className="post" key={index}>
                                 <div className="comments" style={{ position: "sticky", bottom: "0" }}>
+                                    <p>Comments amount: {getNumComments(pair.ref)}</p>
                                     <button className="comments-button" onClick={() => handleOpen(pair)}>
                                         <FontAwesomeIcon className="comment-icon" icon={faComment}/>
                                     </button>
@@ -142,7 +143,6 @@ export default function () {
                                 <h4><u>By</u>: {pair.post.publisher}</h4>
                                 <p><u>Content:</u> {pair.post.content}</p>
                                 <br/>
-                                <p>Comments amount: {getNumComments(pair.ref)}</p>
                             </div>
                         )
                     })
