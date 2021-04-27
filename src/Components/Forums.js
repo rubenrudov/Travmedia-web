@@ -6,13 +6,15 @@ import app from '../fireb'
 import CommentsDialog from './CommentsDialog';
 import { faComment, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import EditDialog from './EditDialog';
 
 export default function () {
 
     // Hooks
     const { currentUser, logout } = useAuth();
     // For uploading
-    const [open, setOpen] = useState(false)
+    const [openComments, setOpenComments] = useState(false)
+    const [openEdit, setOpenEdit] = useState(false)
     const [dialogPost, setDialog] = useState({})
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -51,18 +53,33 @@ export default function () {
         setContent(e.target.value);
     }
 
-    const handleOpen = (pair) => {
+    const handleCommentsOpen = (pair) => {
         setDialog(pair);
-        setOpen(true);
+        setOpenComments(true);
     };
 
-    const handleClose = () => {
-        setOpen(false);
+    const handleCloseComments = () => {
+        setOpenComments(false);
     };
 
-    const handleDialogDisplay = () => {
-        if(open){
-            return(<CommentsDialog post={dialogPost} open={open} onClose={handleClose} />)
+    const handleEditOpen = (pair) => {
+        setDialog(pair);
+        setOpenEdit(true);
+    };
+
+    const handleCloseEdit = () => {
+        setOpenEdit(false);
+    };
+
+    const handleCommentsDisplay = () => {
+        if(openComments){
+            return(<CommentsDialog post={dialogPost} open={openComments} onClose={handleCloseComments} />)
+        }
+    }
+
+    const handleEditDisply = () => {
+        if(openEdit){
+            return(<EditDialog post={dialogPost} open={openEdit} onClose={handleCloseEdit} />)
         }
     }
 
@@ -127,7 +144,7 @@ export default function () {
                             <div className="post" key={index}>
                                 <div className="comments" style={{ position: "sticky", bottom: "0" }}>
                                     <p>Comments amount: {getNumComments(pair.ref)}</p>
-                                    <button className="comments-button" onClick={() => handleOpen(pair)}>
+                                    <button className="comments-button" onClick={() => handleCommentsOpen(pair)}>
                                         <FontAwesomeIcon className="comment-icon" icon={faComment}/>
                                     </button>
                                     {
@@ -136,7 +153,7 @@ export default function () {
                                             <button className="comments-button" onClick={() => deletePost(pair)}>
                                                 <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
                                             </button>
-                                            <button className="comments-button" onClick={() => handleOpen(pair)}>
+                                            <button className="comments-button" onClick={() => handleEditOpen(pair)}>
                                                 <FontAwesomeIcon className="comment-icon" icon={faEdit}/>
                                             </button>
                                         </>
@@ -168,7 +185,10 @@ export default function () {
             </center>
             <br />
             {
-                handleDialogDisplay()
+                handleCommentsDisplay()
+            }
+            {
+                handleEditDisply()
             }
             
         </div>
