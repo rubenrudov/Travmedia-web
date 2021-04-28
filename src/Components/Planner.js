@@ -101,9 +101,9 @@ export default function Planner() {
                                     <button className="comments-button" onClick={() => deletePlan(dest)}>
                                         <FontAwesomeIcon className="comment-icon" icon={faTrash}/>
                                     </button>
-                                    <button className="comments-button" onClick={() => deletePlan(dest)}>
+                                    {/*<button className="comments-button" onClick={() => deletePlan(dest)}>
                                         <FontAwesomeIcon className="comment-icon" icon={faEdit}/>
-                                    </button>
+                                    </button>*/}
                                     <h4>{dest.plan.title}</h4>
                                     <h6>{dest.plan.desc}</h6>
                                     <br/>

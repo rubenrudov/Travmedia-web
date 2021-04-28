@@ -449,7 +449,7 @@ select option {
     }
 
     .edit-dialog .input, .input.comment-input {
-        width: 290px;
+        width: 175px;
     }
 }
   
