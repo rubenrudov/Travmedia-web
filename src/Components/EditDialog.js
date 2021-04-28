@@ -65,7 +65,7 @@ export default function (props) {
                 <input className="input" onChange={handleOnChangeTitle} value={title} />
                 <br />
                 <label>Some content for the post</label>
-                <textarea className="input" onChange={handleOnChangeContent} value={content} />
+                <textarea className="input text" onChange={handleOnChangeContent} value={content} />
                 <br />
                 <button className="submit-button" onClick={editPost}>Edit post</button>
             </div>

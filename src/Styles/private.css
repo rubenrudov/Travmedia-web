@@ -345,6 +345,17 @@ select option {
     min-height: 350px;
 }
 
+.edit-post {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.edit-dialog .input {
+    resize: vertical !important;
+}
+
 @media (max-width: 700px) {
     .content {
         display: flex;
@@ -435,6 +446,10 @@ select option {
         resize: vertical !important;
         min-height: 45px;
         width: 90%;
+    }
+
+    .edit-dialog .input, .input.comment-input {
+        width: 290px;
     }
 }
   
