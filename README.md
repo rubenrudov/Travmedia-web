@@ -1,6 +1,6 @@
 # Travmedia :earth_africa:
 
-Travmedia is a platform that allows every single traveler save a lot of time that usually wasted on trip planning, the platform provides accessibility for some popular traveling dedicated platforms under one single platform with some additional helpful features.
+Travmedia is a platform built by Rechnology that allows every single traveler save a lot of time that usually wasted on trip planning, the platform provides accessibility for some popular traveling dedicated platforms under one single platform with some additional helpful features.
 
 [The link for the last version of the website](https://travmedia.netlify.app/)
 
